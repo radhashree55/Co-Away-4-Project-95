@@ -76,7 +76,38 @@ export default class DetailsScreen extends Component {
         </View>
 
         {this.state.isRegistered ? (
-          <Text> you have already registered</Text>
+          <View style={{ flex: 0.1 }}>
+            <Text
+              style={{
+                alignSelf: "center",
+                fontWeight: "bold",
+                fontSize: RFValue(20),
+                marginTop: RFValue(50),
+              }}
+            >
+              You have already been Registered
+            </Text>
+            <View style={{ borderWidth: 5, marginTop: RFValue(20) }}>
+              <Text
+                style={{
+                  fontWeight: "bold",
+                  fontSize: RFValue(24),
+                  alignSelf: "center",
+                }}
+              >
+                Patient's Information
+              </Text>
+              <Text style={styles.detailsText}>Name: {this.state.name}</Text>
+
+              <Text style={styles.detailsText}>
+                Contact: {this.state.contact}
+              </Text>
+
+              <Text style={styles.detailsText}>
+                Address: {this.state.address}
+              </Text>
+            </View>
+          </View>
         ) : (
           <View style={{ flex: 0.9 }}>
             {this.state.emailId == this.state.userId ? (
@@ -90,7 +121,7 @@ export default class DetailsScreen extends Component {
                   <Text style={styles.styleText}>
                     {"Dear " +
                       this.state.name +
-                      ", you have been registered at " +
+                      ", you will be registered at " +
                       this.state.placeName +
                       " for a Covishield vaccination shot."}
                   </Text>
@@ -105,6 +136,28 @@ export default class DetailsScreen extends Component {
                   >
                     ~Please carry an ID-Proof~
                   </Text>
+                  <View style={{ borderWidth: 5, marginTop: RFValue(20) }}>
+                    <Text
+                      style={{
+                        fontWeight: "bold",
+                        fontSize: RFValue(24),
+                        alignSelf: "center",
+                      }}
+                    >
+                      Patient's Information
+                    </Text>
+                    <Text style={styles.detailsText}>
+                      Name: {this.state.name}
+                    </Text>
+
+                    <Text style={styles.detailsText}>
+                      Contact: {this.state.contact}
+                    </Text>
+
+                    <Text style={styles.detailsText}>
+                      Address: {this.state.address}
+                    </Text>
+                  </View>
 
                   <TouchableOpacity
                     style={styles.button}
@@ -114,7 +167,7 @@ export default class DetailsScreen extends Component {
                     }}
                   >
                     <Text style={{ fontWeight: "bold", fontSize: RFValue(20) }}>
-                      Agree
+                      Agree/Proceed
                     </Text>
                   </TouchableOpacity>
                 </View>
@@ -186,7 +239,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   button: {
-    width: "65%",
+    width: RFValue(200),
     height: RFValue(40),
     justifyContent: "center",
     alignItems: "center",
